@@ -6,10 +6,12 @@ const connectDB = require('./config/db');
 const port = 3000
 dotenv.config();
 const authRoutes = require('./routes/authRoutes');
+const chatRoutes = require('./routes/chatRoutes');
 
 app.use(cors())
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use('/api', chatRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
